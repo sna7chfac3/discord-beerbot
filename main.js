@@ -16,7 +16,10 @@ client.on('message', message => {
         message.reply("there was an error");
       } else if (data) {
         var result = data[0];
-        message.channel.sendMessage("Name: " + result.name + "\nABV: " + result.abv + "\nType: " + result.style.shortName + "\nLabel: " + result.labels.large);
+        message.channel.sendMessage("Name: " + result.name + "\nABV: " + result.abv + "\nType: " + result.style.shortName);
+        if (typeof result.labels !== 'undefined') {
+          message.channel.sendMessage(result.labels.large);
+        }
       }
     });
   }
