@@ -7,25 +7,18 @@ const brewdb = new BreweryDb('0a4fe898b6402baccb952720935f283a');
 
 console.log('BeerBot has started');
 
-function beerSearch(name, done) {
-  brewdb.beer.find ({name: name}, function(err, suc) {
-    if (err) {
-      console.log("it failed");
-    } else if (suc) {
-      // console.log(suc[0]);
-      console.log(suc[0].name);
-      console.log(suc[0].abv);
-      console.log(suc[0].labels.medium)
-      console.log(suc[0].style.shortName);
-    }
-  });
-};
-
 client.on('message', message => {
   if (message.content.includes("!beerbot search")) {
     var input = message.content;
     var name = input.substr(input.lastIndexOf('search') + 7);
-    beerSearch(name);
+    brewdb.search.beers ({q: name}, function(err, data) {
+      if (err) {
+        message.reply("there was an error");
+      } else if (data) {
+        var result = data[0];
+        message.channel.sendMessage("Name: " + result.name + "\nABV: " + result.abv + "\nType: " + result.style.shortName + "\nLabel: " + result.labels.large);
+      }
+    });
   }
 });
 
