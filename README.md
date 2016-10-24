@@ -17,9 +17,11 @@
 5. Edit `main.js`, enter your Discord token and BreweryDB API key in the proper
    locations
 6. Open a browser and enter the url:
+
    ```
    https://discordapp.com/oauth2/authorize?&client_id=CLIENT_ID&scope=bot&permissions=0
    ```
+
    but replace `CLIENT_ID` with your client ID from your Discord application
 7. Select your server from the drop down and then click Authorize
 8. run `node main.js`
