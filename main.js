@@ -10,7 +10,7 @@ console.log('BeerBot has started');
 client.on('message', message => {
   if (message.content.includes("!beerbot search")) {
     var input = message.content;
-    var name = input.substr(input.lastIndexOf('search') + 7);
+    var name = input.substr(input.indexOf('!') + 16)
     brewdb.search.beers ({q: name}, function(err, data) {
       if (err) {
         message.reply("there was an error");
