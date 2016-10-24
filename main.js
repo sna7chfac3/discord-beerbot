@@ -1,9 +1,9 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-client.login('MjM5MTE2OTcxMzkwNTMzNjMy.Cuw41g.ohzfXBPl9BSiDD6uhq-34xVEWQY');
+client.login('discord-token');
 
 const BreweryDb = require('brewerydb-node');
-const brewdb = new BreweryDb('0a4fe898b6402baccb952720935f283a');
+const brewdb = new BreweryDb('brewerydb-api-key');
 
 console.log('BeerBot has started');
 
