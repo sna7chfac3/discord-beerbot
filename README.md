@@ -14,8 +14,7 @@
 2. Install discord.js and brewerydb-node with npm
 3. Clone this repository
 4. Create a Discord application with a bot user
-5. Edit `main.js`, enter your Discord token and BreweryDB API key in the proper
-   locations
+5. Edit `main.js`, enter your Discord token and BreweryDB API key in the proper locations
 6. Open a browser and enter the url:
 
    ```
@@ -25,10 +24,6 @@
    but replace `CLIENT_ID` with your client ID from your Discord application
 7. Select your server from the drop down and then click Authorize
 8. run `node main.js`
-
-After installing Node, installing discord.js and brewerydb-node with npm,
-just clone this repository then run edit main.js and enter your token and API
-keys in the proper locations.
 
 ## Commands
 
