@@ -16,6 +16,7 @@ client.on('message', message => {
         message.reply("There was an error");
       } else if (data) {
         var result = data[0];
+        console.log(name);
         message.channel.sendMessage("Name: " + result.name + "\nABV: " + result.abv + "\nType: " + result.style.shortName);
         if (typeof result.description !== 'undefined') {
           message.channel.sendMessage("Description: " + result.description);
