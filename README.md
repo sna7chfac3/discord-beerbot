@@ -1,4 +1,4 @@
-# BeerBot - A Discord bot for searching beer
+# BeerBot - A Discord bot to search for beer
 
 ## Requirements
 
