@@ -25,13 +25,13 @@
 
 ## Commands
 
-There's only one command and it only does one thing right now:
+There's only one command and it only does one thing righ now:
 
 ```
 !beerbot search <name of beer to search>
 ```
 
-This will search for the beer then return the name, ABV, type, description and label if it
+This will search for the beer then return the name, ABV, type, description, and label if it
 has one.
 
 ### License
