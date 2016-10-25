@@ -1,0 +1,15 @@
+{
+  "name": "beerbot",
+  "version": "1.0.0",
+  "author": "niinzir",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/niinzir/discord-beerbot"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": ">=9.3.1",
+    "brewerydb-node": ">=0.0.1"
+  },
+  "main": "bot.js"
+}
