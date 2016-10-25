@@ -10,7 +10,7 @@
 
 1. Install Node
 2. Clone this repository locally
-3. cd into the directroy and run npm install
+3. cd into the directroy and run `npm install`
 4. Create a Discord application with a bot user
 5. Edit `bot.js`, enter your Discord token and BreweryDB API key in the proper locations
 6. Open a browser and enter the url:
@@ -25,7 +25,7 @@
 
 ## Commands
 
-There's only one command and it only does one thing righ now:
+There's only one command and it only does one thing right now:
 
 ```
 !beerbot search <name of beer to search>
