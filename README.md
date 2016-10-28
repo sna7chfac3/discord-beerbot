@@ -34,6 +34,8 @@ There's only one command and it only does one thing right now:
 This will search for the beer then return the name, ABV, type, description, and label if it
 has one.
 
+---
+
 ### License
 
 MIT License

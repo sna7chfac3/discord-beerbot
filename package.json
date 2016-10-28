@@ -8,7 +8,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "discord.js": ">=9.3.1",
+    "discord.js": ">=10.0.1",
     "brewerydb-node": ">=0.0.1"
   },
   "main": "bot.js"
