@@ -15,13 +15,13 @@ bot.on('message', message => {
   // beer search
   if (message.content.startsWith(prefix + "beer")) {
     var input = message.content;
-    var beerName = input.substr(input.indexOf('!') + 14)
+    var beerName = input.substr(input.indexOf('!') + 14);
     brewdb.search.beers ({q: beerName}, function(err, data) {
       if (err) {
         message.reply("There was an error");
       } else if (data) {
         var result = data[0];
-        console.log("Beer search: " + beerName)
+        console.log("Beer search: " + beerName);
         message.channel.sendMessage("Name: " + result.name + "\nABV: " + result.abv + "\nType: " + result.style.shortName);
         if (typeof result.description !== 'undefined') {
           message.channel.sendMessage("Description: " + result.description);
@@ -36,14 +36,14 @@ bot.on('message', message => {
   // brewery search
   if (message.content.startsWith(prefix + "brewery")) {
     var input = message.content;
-    var breweryName = input.substr(input.indexOf('!') + 17)
+    var breweryName = input.substr(input.indexOf('!') + 17);
     brewdb.search.breweries ({q: breweryName}, function(err, data) {
       if (err) {
         message.reply("There was an error");
       } else if (data) {
         var result = data[0];
         console.log("Brewery search: " + breweryName);
-        message.channel.sendMessage("Name: " + result.name + "\nWebsite: " + result.website);
+        message.channel.sendMessage("Name: " + result.name + "\nEstablished: " + result.established + "\nWebsite: " + result.website);
         if (typeof result.description !== 'undefined') {
           message.channel.sendMessage("Description: " + result.description);
         }
@@ -55,9 +55,14 @@ bot.on('message', message => {
   }
 
   // command list
+  const commands = require('./commands.json');
+
   if (message.content.startsWith(prefix + "help")) {
-    message.channel.sendMessage("Use the syntax `!beerbot <param> <query>` without the angle brackets");
-    message.channel.sendMessage("```!beerbot beer --- Search for beer \n!beerbot brewery --- Search for brewery```")
+    message.author.sendMessage("Use the syntax `!beerbot <parameter> <query>` without the angle brackets");
+    message.author.sendMessage("`parameter | description`");
+    for (key in commands) {
+      message.author.sendMessage("`" + key + " | " + commands[key] + "`");
+    }
   }
 
   if (message.content === prefix) {
