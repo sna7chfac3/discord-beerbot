@@ -9,17 +9,19 @@ bot.on('ready', ready => {
   console.log("BeerBot has started");
 })
 
-// beer search
 bot.on('message', message => {
-  if (message.content.includes("!beerbot search")) {
+  let prefix = '!beerbot ';
+
+  // beer search
+  if (message.content.startsWith(prefix + "beer")) {
     var input = message.content;
-    var beerName = input.substr(input.indexOf('!') + 20)
+    var beerName = input.substr(input.indexOf('!') + 14)
     brewdb.search.beers ({q: beerName}, function(err, data) {
       if (err) {
         message.reply("There was an error");
       } else if (data) {
         var result = data[0];
-        console.log(beerName);
+        console.log("Beer search: " + beerName)
         message.channel.sendMessage("Name: " + result.name + "\nABV: " + result.abv + "\nType: " + result.style.shortName);
         if (typeof result.description !== 'undefined') {
           message.channel.sendMessage("Description: " + result.description);
@@ -30,11 +32,35 @@ bot.on('message', message => {
       }
     });
   }
-});
 
-// ping
-bot.on('message', message => {
-  if (message.content === '!beerbot') {
-    message.reply('pong');
+  // brewery search
+  if (message.content.startsWith(prefix + "brewery")) {
+    var input = message.content;
+    var breweryName = input.substr(input.indexOf('!') + 17)
+    brewdb.search.breweries ({q: breweryName}, function(err, data) {
+      if (err) {
+        message.reply("There was an error");
+      } else if (data) {
+        var result = data[0];
+        console.log("Brewery search: " + breweryName);
+        message.channel.sendMessage("Name: " + result.name + "\nWebsite: " + result.website);
+        if (typeof result.description !== 'undefined') {
+          message.channel.sendMessage("Description: " + result.description);
+        }
+        if (typeof result.images.large !== 'undefined') {
+          message.channel.sendFile(result.images.large);
+        }
+      }
+    });
+  }
+
+  // command list
+  if (message.content.startsWith(prefix + "help")) {
+    message.channel.sendMessage("Use the syntax `!beerbot <param> <query>` without the angle brackets");
+    message.channel.sendMessage("```!beerbot beer --- Search for beer \n!beerbot brewery --- Search for brewery```")
+  }
+
+  if (message.content === prefix) {
+    message.reply("pong");
   }
 });
