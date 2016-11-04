@@ -25,14 +25,31 @@
 
 ## Commands
 
-There's only one command and it only does one thing right now:
+#### To search for a beer:
 
 ```
-!beerbot search <name of beer to search>
+!beerbot beer <name of beer to search>
 ```
 
-This will search for the beer then return the name, ABV, type, description, and label if it
-has one.
+This will search for the beer then return the name, ABV, type, description and
+label if available.
+
+#### To search for a brewery:
+
+```
+!beerbot brewery <name of brewery to search>
+```
+
+This will search for the brewery and return the name, year established, website,
+description and logo if available.
+
+#### Get the command list within Discord:
+
+```
+!beerbot help
+```
+
+This will send you a DM with a list of the available commands.
 
 ---
 
